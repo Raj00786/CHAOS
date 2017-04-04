@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+<HTML>
+<head>
+  <title>Online Interpreter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      body{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzzXKocc03xM446uO_ROG_wd7pi-7uad7PFkiK8IxRjlC4lDWskA;
+        background-attachment: fixed;
+      }
+    </style>
+</head>
+  <BODY>
+    <SCRIPT TYPE="text/javascript" SRC="befunge.js">
+    </SCRIPT>
+    <div style="width:60%;margin:auto">
+      <h2 style="text-align:center">Online Compiler</h2>
+      <input type="button" value="Show" onclick="format('raw')"/>
+      <br>
+      <textarea style="align:center"id="raw" rows="25" cols="80">@</textarea>
+      <hr>
+      <pre id="code">
+      </pre>
+      <hr>
+      <p>
+        <input type="button" value="Run" onclick="run()"/>
+        or
+        <input type="button" value="Step" onclick="sstep()"/>
+        <input type="text" id="repeat" size="5" value="1"/>times
+        <input type="button" id="slow" value="Slow" onclick="slow()"/>
+        <input type="text" id="speed" size="5" value="500"/>ms
+      </p>
+      <input type="text" id="input" size="80"/>Input
+      <br>
+      <input type="text" id="stack" size="80"/>Stack
+      <br>
+      Output:
+      <pre id="output"></pre>
+      <hr>
+
+      <input type="button" value="Contact" onclick="format('contact');run()"/>
+      <hr>
+    <h4>Points to note</h4>
+    <ul>
+      <li>Type your code in the textbox above and press "Submit Code" button. Give your input and press run to get output.</li>
+      <li>Code may not line up correctly if modifed with the put (p) instruction.</li>
+      <li>The code torus is only as large as the initial program.
+          Insert more lines or trailing space if data will be put beyond the end of code.</li>
+      <li>When using the Run button, you cannot interrupt an infinite loop.</li>
+      <li>Tested in Safari 7, FireFox, and IE 6</li>
+    </ul>
+    <hr>
+    </div>
+  </BODY>
+</HTML>

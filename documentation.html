@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Chaos Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .container-fluid {
+      padding: 50px 100px; 
+      display: block;
+      margin-left: 140px;
+      margin-right: 140px 
+  }
+      .bg-1 {
+        background-color: #396060;
+        color: #ffffff;
+      }
+      .bg-2 {
+        background-color: #ffffff;
+        color: black;
+      }
+      .bg-3 {
+        background-color: #395858;
+        color: #ffffff;
+      }
+      .bg-4{
+        background-color:#6FA8AA;
+        color:#ffffff;
+      }
+      table,th,td{
+        padding:  1em auto;
+        border: 1px solid black;
+      }
+      th{
+        background-color: #395858;
+        color: white;
+        text-align: center;
+        padding: 5px 0px;
+      }
+      td{
+        padding: 5px 20px;
+      }
+      h3{
+        font-size: 28px;
+      }
+      body{
+        background-image: url(https://wallpaperscraft.com/image/robot_android_digital_art_cgi_104320_1920x1080.jpg);
+        background-attachment: fixed;
+      }
+    </style>
+</head>
+<body >
+  <div class="container-fluid bg-1 text-center">
+    <h1>Techkriti'17</h1>
+    <h2><b>Chaos Documentation</b></h1>
+  </div>
+  <div class="container-fluid bg-2 text-center">
+  <h4><b>This is a stack based language and everything here is determined by stack operations only.
+As all of you would know the act of placing a value on the stack is called pushing, and the act of taking a value off the stack is called popping.<br> You will be playing with several stack operations while coding in this language.</b></h4>
+  </div>
+  <div class="container-fluid bg-3">
+  <h2><b> The main features of the language are:</b></h2>
+  <ol>
+    <li><b>Self-Modifying:</b> new instructions can be written into the playfield which can eventually alter the very purpose of the program</li>
+<li><b>Multi-Dimensional:</b> four different contexts can be there to execute the same instruction (series of instructions can be left to right or right to left, or upward or downward). So its not just standard right bottom approach to programming. You have all the four directions available for controlling data flow.</li>
+  </ol>
+  </div>
+<div class="container-fluid bg-2">
+  <h2 style="text-align:center"><b>The Programming Aspect: The commands are</b></h2>
+  <p>
+<table class="commands"">
+<tr>
+<th>Cmd
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><code>0</code> – <code>9</code>
+</td>
+<td>Push this number on the stack
+</td></tr>
+<tr>
+<td><code>+</code>
+</td>
+<td>add: Pop a and b, then push a+b
+</td></tr>
+<tr>
+<td><code>-</code>
+</td>
+<td>subtract: Pop a and b, then push b-a
+</td></tr>
+<tr>
+<td><code>*</code>
+</td>
+<td>multiply: Pop a and b, then push a*b
+</td></tr>
+<tr>
+<td><code>/</code>
+</td>
+<td>integer division: Pop a and b, then push b/a, rounded towards 0.
+</td></tr>
+<tr>
+<td><code>%</code>
+</td>
+<td>modulus: Pop a and b from the stack, then push the remainder of the integer division(b/a).
+</td></tr>
+<tr>
+<td><code>!</code>
+</td>
+<td>logical NOT: Pop a value. If value = 0, push 1; else, push 0.
+</td></tr>
+<tr>
+<td><code>)</code>
+</td>
+<td>greater than: Pop a and b, then push 1 if b>a, otherwise zero.
+</td></tr>
+<tr>
+<td><code>&gt;</code>
+</td>
+<td>Start moving right
+</td></tr>
+<tr>
+<td><code>&lt;</code>
+</td>
+<td>Start moving left
+</td></tr>
+<tr>
+<td><code>^</code>
+</td>
+<td>Start moving up
+</td></tr>
+<tr>
+<td><code>v</code>
+</td>
+<td>Start moving down
+</td></tr>
+<tr>
+<td><code>o</code>
+</td>
+<td>Start moving in a random cardinal direction
+</td></tr>
+<tr>
+<td><code>_</code>
+</td>
+<td>IF: Pop a value; move right if value=0, left otherwise
+</td></tr>
+<tr>
+<td><code>|</code>
+</td>
+<td>Yet another IF: Pop a value; move down if value=0, up otherwise
+</td></tr>
+<tr>
+<td><code>[</code>
+</td>
+<td>Duplicate value on top of the stack
+</td></tr>
+<tr>
+<tr>
+<td><code>"</code>
+</td>
+<td>Start stringmode (push ASCII values all the way up to the next <code>'</code>)
+</td></tr>
+<td><code>=</code>
+</td>
+<td>Swap two values on top of the stack
+</td></tr>
+<tr>
+<td><code>$</code>
+</td>
+<td>Pop value from the stack and discard it
+</td></tr>
+<tr>
+<td><code>.</code>
+</td>
+<td>Pop value and output as an integer followed by a space
+</td></tr>
+<tr>
+<td><code>,</code>
+</td>
+<td>Pop value and output as ASCII character
+</td></tr>
+<tr>
+<td><code>~</code>
+</td>
+<td>Bridge: Skip next cell
+</td></tr>
+<tr>
+<td><code>r</code>
+</td>
+<td>A way to retrieve data from the storage. Pop y and x, then push ASCII value of the character at that position in the program.
+</td></tr>
+<tr>
+<td><code>p</code>
+</td>
+<td>A way to store a value for later use. Pop y, x, and v, then change the character at (x,y) in the program to the character with ASCII value v.
+</td></tr>
+<tr>
+<td><code>#</code>
+</td>
+<td>Ask user for a number and push it
+</td></tr>
+<tr>
+<td><code>&amp;</code>
+</td>
+<td>Ask user for a character and push its ASCII value
+</td></tr>
+<tr>
+<td><code>@</code>
+</td>
+<td>End program
+</td></tr>
+</table></p>
+ </div>
+
+<div class="container-fluid bg-3">
+  <h1 style="text-align:center;"><b>Warning</b></h1>
+    <p style="text-align: center;"><b>If the stack is empty during popping, this will not generate an underflow! It will simply return '0' to you. Hope you can live with it :)<br><br>
+    Also, googling codes isn't gonna work out as the the language has been heavily tweaked out.
+      </b></p>
+  </div>
+  <div class="container-fluid bg-2">
+  <h2 style="text-align:center;"><b>Example:</b></h2>
+  <b>Software Corner!</b>
+  <h5>Code:</h5>
+  <p><b>25*"!renroC erawtfoS" >[~,_@</b></p>
+  <h4>Explanation:</h4>
+  <p>25* pushes 10 to the stack,' starts string mode, and second ' sets string mode off.<br><br>
+Second part is the loop that prints values pushed to the stack, > makes PC move right. [ duplicates the current character. Within one iteration the order of events is:
+  </p>
+  <ul>
+    <li>duplicate the stack’s topmost element.</li>
+    <li>Check whether it’s equal to 0; if it is, break the loop. During this check the topmost element is always deleted</li>
+    <li>display the topmost element of the stack.</li>
+  </ul><br>
+    </div>
+  <div class="container-fluid bg-3">
+    <h3 style="text-align: center;">The Program Counter in Detail</h3>
+    <p>The following example will result in a never ending loop :<br>
+>&lt<br><br>
+If  the PC encounters the 'edge' of the program, for e.g. if you were to try to execute:<br>
+&lt The PC will 'wrap around' to the other 'edge' of the program. This, also, is a never ending loop.
+    </p>
+              </div>
+              <div class="container-fluid bg-2">
+    <h3 style="text-align: center;">Decision making</h3>
+    <p>The standard 'if' statement here is either '_' or '|', depending on how you want to branch. In both cases a value pops off the stack and it is checked to see if it is true (non-zero,) and change the PCs direction accordingly.
+'_' behaves as '&lt' if it's true, and '>' when false.
+similarly '|'. 
+'While' loops can be made by putting an 'if' in an infinite loop.
+</p>
+                                               </div>
+  <div class="container-fluid bg-3">
+    <h3 style="text-align: center;">Input</h3>
+    <p>The '#' command will be getting a numeric value from the standard input and the value will be pushed on the stack. '&amp' will get the next ASCII character from standard input and push it on the stack.
+    </p>
+    <h4>Eg</h4>
+    <p>#,        prints out "A" if the user types "65", and...<br>
+&amp.        prints out "65" if the user types "A".
+    </p>
+  </div>
+  <div class="container-fluid bg-2">
+    <h3 style="text-align: center;">Output</h3>
+    <p>The '.' command will pop a value off the stack and display it as an integer, which will be followed by a space. (somewhat like Forth.) ',' will pop a value and display as ASCII but without any space.
+    </p>
+    <h4>Example:</h4>
+    <p>665+*1-,...displays ASCII 65 ("A".), and...
+665+*1-....display "65 ".
+    </p>
+  </div>
+  <div class="container-fluid bg-3">
+    <h3 style="text-align: center;">Special Commands</h3>
+    <p>'~' command skips the next command (which would normally be executed) <br><br>For example,<br>
+>123...@would lead to the display of "3 2 1 " but<br>
+>123~...@would lead to the display of "3 2 " with one of the '.''s being skipped. <br><br>
+')' (back-quote) is the 'greater' command. It performs the comparison of top two values on the stack, and returns '1' if the first is greater than the second.<br>
+    </p>
+    <h4>Example:</h4>
+    <p>65)....leads to the display of "1 " and...<br>
+      25)....leads to the display of "0 ".<br>
+    </p>
+  </div>
+</body>
+</html>

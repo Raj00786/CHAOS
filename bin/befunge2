@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+
+
+
+//echo($code);
+//echo($name);
+
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/docopt/docopt/src/docopt.php';
+
+use igorw\befunge;
+$doc = <<<DOC
+Befunge.
+
+Usage:
+  befunge [--debug] [--] <filename>
+  befunge (-h | --help)
+
+Options:
+  -h --help     Show this screen.
+  -d --debug    Show debug logs.
+
+DOC;
+
+$args = Docopt\docopt($doc);
+$code = file_get_contents($args['<filename>']);
+$logger= null;
+$handle = fopen('/srv/http/2017.techkriti.org/software/chaos/bin/file.txt','r');
+//echo($handle);
+$return = befunge\execute($code, $logger,$handle);
+echo($return);
+if($return=="1 1 2 3 5 8 13")
+{
+echo 'true';}
+echo "\n";
+//exit($return);
